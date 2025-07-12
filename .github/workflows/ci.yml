@@ -1,24 +1,20 @@
-
 name: CI
 
 on: [push, pull_request]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-      - name: Install uv
-        run: pip install uv
-      - name: Install dependencies
-        run: uv sync --locked dev
-      - name: Lint with ruff
-        run: uvx ruff check .
-      - name: Type check with ty
-        run: uvx ty .
-      - name: Run tests
-        run: uv run pytest
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: astral-sh/setup-uv@v1
+              with:
+                  python-version: "3.13
+            - name: Install dependencies
+              run: uv sync --locked
+            - name: Lint with ruff
+              run: uvx ruff check .
+            - name: Type check with ty
+              run: uvx ty .
+            - name: Run tests
+              run: uv run pytest
