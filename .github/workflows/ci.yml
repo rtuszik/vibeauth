@@ -21,6 +21,4 @@ jobs:
       - name: Type check with ty
         run: uvx ty .
       - name: Run tests
-        run: |
-          source .venv/bin/activate
-          python -m pytest
+        run: .venv/bin/python -m pytest
