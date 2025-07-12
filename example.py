@@ -1,4 +1,4 @@
-from vibecheck import run
+from vibecheck.main import run
 
 if __name__ == "__main__":
     print("Starting VibeCheck server...")
