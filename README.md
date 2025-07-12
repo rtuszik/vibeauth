@@ -32,13 +32,30 @@ pip install vibecheck-auth
 
 **2. Configuration:**
 
-Create a `.env` file in your project root and populate it with your API credentials.
+Create a `.env` file in your project root. Copy `.env.example` as a template:
 
+```bash
+cp .env.example .env
 ```
-OPENAI_API_KEY="your-key-here"
-ANTHROPIC_API_KEY="your-key-here"
-# etc.
+
+Configure your preferred LLM provider(s) and models:
+
+```bash
+# Choose your models (supports any LiteLLM-compatible model)
+DEFAULT_MODEL="gpt-3.5-turbo"        # For challenge generation
+VIBE_CHECK_MODEL="gpt-4-turbo"       # For vibe analysis
+
+# Add API keys for your chosen provider(s)
+OPENAI_API_KEY="your-openai-key"
+ANTHROPIC_API_KEY="your-anthropic-key"
+# GOOGLE_API_KEY="your-google-key"
+# COHERE_API_KEY="your-cohere-key"
+
+# Optional: Custom API endpoints
+# OPENAI_API_BASE="https://your-proxy.com/v1"
 ```
+
+VibeCheck supports all major LLM providers through LiteLLM: OpenAI, Anthropic, Google Gemini, Cohere, Azure OpenAI, and more.
 
 **3. Integration:**
 
