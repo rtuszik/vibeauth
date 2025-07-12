@@ -17,8 +17,8 @@ jobs:
       - name: Install dependencies
         run: uv sync --locked
       - name: Lint with ruff
-        run: ruff check .
+        run: uvx ruff check .
       - name: Type check with ty
-        run: ty .
+        run: uvx ty .
       - name: Run tests
         run: pytest
