@@ -1,5 +1,5 @@
 def main():
-    print("Hello from vibecheck-auth!")
+    print("Hello from LMA!")
 
 
 if __name__ == "__main__":

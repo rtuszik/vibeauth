@@ -1,13 +1,13 @@
 from fastapi.testclient import TestClient
 from unittest.mock import patch, MagicMock
-from vibecheck.main import app
+from lma.main import app
 
 client = TestClient(app)
 
 def test_read_root():
     response = client.get("/")
     assert response.status_code == 200
-    assert "<h1>VibeCheck Auth</h1>" in response.text
+    assert "<h1>LMA</h1>" in response.text
 
 @patch('litellm.acompletion')
 def test_get_signin_modal(mock_acompletion):

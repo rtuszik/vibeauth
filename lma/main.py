@@ -41,11 +41,9 @@ gemini_base = os.getenv("GEMINI_API_BASE")
 if gemini_base:
     setattr(litellm, "gemini_api_base", gemini_base)
 
-# Get model configurations from environment variables
 DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "gpt-3.5-turbo")
 VIBE_CHECK_MODEL = os.getenv("VIBE_CHECK_MODEL", "gpt-4-turbo")
 
-# Optional: Set custom headers if needed
 custom_headers = os.getenv("LITELLM_CUSTOM_HEADERS")
 if custom_headers:
     import json

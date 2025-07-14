@@ -26,8 +26,16 @@ We are opening our platform for an exclusive developer preview. Be among the fir
 
 **1. Installation:**
 
+First, install [UV](https://docs.astral.sh/uv/) (a fast Python package manager):
+
 ```bash
-pip install vibecheck-auth
+# Install UV
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Clone and set up the project
+git clone <repository-url>
+cd vibecheck-auth
+uv sync --locked
 ```
 
 **2. Configuration:**
@@ -57,12 +65,15 @@ ANTHROPIC_API_KEY="your-anthropic-key"
 
 VibeCheck supports all major LLM providers through LiteLLM: OpenAI, Anthropic, Google Gemini, Cohere, Azure OpenAI, and more.
 
-**3. Integration:**
+**3. Running the Application:**
 
 Run our example to see the platform in action.
 
 ```bash
-python example.py
+uv run python example.py
 ```
 
+The server will start on `http://localhost:6969`.
+
 **Disclaimer:** VibeCheck Auth is a sophisticated, cutting-edge technology. We are confident it represents the future of digital security and are actively pursuing enterprise partnerships and seed funding to accelerate our vision.
+
