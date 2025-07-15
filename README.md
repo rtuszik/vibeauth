@@ -49,9 +49,8 @@ cp .env.example .env
 Configure your preferred LLM provider(s) and models:
 
 ```bash
-# Choose your models (supports any LiteLLM-compatible model)
-DEFAULT_MODEL="gpt-3.5-turbo"        # For challenge generation
-VIBE_CHECK_MODEL="gpt-4-turbo"       # For vibe analysis
+# Choose your model (supports any LiteLLM-compatible model)
+DEFAULT_MODEL="Gemini-2.5-Flash"        # For challenge generation
 
 # Add API keys for your chosen provider(s)
 OPENAI_API_KEY="your-openai-key"
@@ -76,4 +75,3 @@ uv run python example.py
 The server will start on `http://localhost:6969`.
 
 **Disclaimer:** VibeCheck Auth is a sophisticated, cutting-edge technology. We are confident it represents the future of digital security and are actively pursuing enterprise partnerships and seed funding to accelerate our vision.
-
