@@ -168,7 +168,7 @@ def get_landing_page_html() -> str:
             
             <div class="features">
                 <div class="feature">AI-powered gatekeeping analysis</div>
-                <div class="feature">Zero-knowledge (No one knows how anything works) authentication</div>
+                <div class="feature">Zero-knowledge (No one knows whats going on)</div>
                 <div class="feature">Enterprise security standards (Minutes Before Chapter 11)</div>
                 <div class="feature">Fraud-resistant verification</div>
             </div>

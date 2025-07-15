@@ -38,7 +38,6 @@ if custom_headers:
     setattr(litellm, "headers", json.loads(custom_headers))
 
 DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "gpt-3.5-turbo")
-VIBE_CHECK_MODEL = os.getenv("VIBE_CHECK_MODEL", "gpt-4-turbo")
 
 LITELLM_PROXY_API_KEY = os.getenv("LITELLM_PROXY_API_KEY")
 
@@ -47,6 +46,5 @@ __all__ = [
     "litellm",
     "openai_base",
     "DEFAULT_MODEL",
-    "VIBE_CHECK_MODEL",
     "LITELLM_PROXY_API_KEY",
 ]

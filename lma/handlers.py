@@ -9,7 +9,6 @@ from .config import (
     litellm,
     openai_base,
     DEFAULT_MODEL,
-    VIBE_CHECK_MODEL,
     LITELLM_PROXY_API_KEY,
 )
 
@@ -52,20 +51,20 @@ async def handle_signin_modal() -> HTMLResponse:
         return utils.handle_llm_error(e, "get_signin_modal")
 
 
-async def handle_vibe_check(request: Request, user_input: str = Form(...)) -> HTMLResponse:
+async def handle_vibe_check(request: Request, user_input: str = Form(...), challenge: str = Form(...)) -> HTMLResponse:
     try:
         await asyncio.sleep(2)
         
-        prompt = prompts.get_vibe_check_prompt(user_input)
+        prompt = prompts.get_vibe_check_prompt(challenge, user_input)
         
         utils.log_debug("COGNITIVE ANALYSIS INITIATED", {
-            "Vibe Check Model": VIBE_CHECK_MODEL,
+            "Challenge": f"{challenge[:100]}...",
             "User Input": f"{user_input[:100]}...",
             "Status": "Performing quantum-enhanced psychological analysis...",
         })
         
         response = await litellm.acompletion(
-            model=VIBE_CHECK_MODEL,
+            model=DEFAULT_MODEL,
             messages=[{"role": "user", "content": prompt}],
             timeout=30,  
             api_base=openai_base,  
@@ -73,7 +72,7 @@ async def handle_vibe_check(request: Request, user_input: str = Form(...)) -> HT
         )
         result = response.choices[0].message.content
         
-        utils.log_debug("COGNITIVE ASSESSMENT COMPLETE", {
+        utils.log_debug("Assessment complete", {
             "AI Decision": result,
             "Psychological Profile": 'VALIDATED' if 'ACCESS GRANTED' in result else 'ANOMALY DETECTED',
         })
